@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mars Journey</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Syncopate:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Global Space Background (applies to all pages/sections) -->
+    <div id="global-space-bg" class="cinematic-space-bg">
+        <!-- Advanced Deep Space Canvas for Stars and Shooting Stars -->
+        <canvas id="space-canvas" class="space-canvas"></canvas>
+
+        <!-- Atmospheric Nebulas and Galaxy Band -->
+        <div class="nebula-bg"></div>
+        <div class="milky-way"></div>
+    </div>
+
+    <!-- Navigation matches the preview header -->
+    <nav class="navbar" aria-label="Main Navigation">
+        <div class="logo">
+            <span class="icon">🚀</span> <span class="white-text">MARS</span><span class="orange-text">JOURNEY</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#hero">LAUNCH</a></li>
+            <li><a href="#travel">SPACE TRAVEL</a></li>
+            <li><a href="#landing">LANDING</a></li>
+            <li><a href="#exploration">EXPLORATION</a></li>
+        </ul>
+        <a href="#travel" class="btn nav-btn">JOIN MISSION</a>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section replicates the uploaded screenshot -->
+        <header id="hero" class="hero-section">
+            <div class="space-scene" id="hero-space-scene">
+                <!-- Planets and specific hero trajectory -->
+                <div class="trajectory-container">
+                    <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="trajectory-svg">
+                        <!-- Curved arc path for cinematic flight -->
+                        <path id="flight-path" class="trajectory-path" d="M 17.5 62.5 Q 40 20 86 29" fill="none"
+                            stroke="rgba(255, 92, 43, 0.4)" stroke-width="2" stroke-dasharray="4 6"
+                            vector-effect="non-scaling-stroke" />
+                        <path id="flight-glow" class="trajectory-glow" d="M 17.5 62.5 Q 40 20 86 29" fill="none"
+                            stroke="url(#glow-gradient)" stroke-width="3" vector-effect="non-scaling-stroke" />
+                        <defs>
+                            <linearGradient id="glow-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#ff754a" />
+                                <stop offset="100%" stop-color="#ff1a1a" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="planet earth-hero"></div>
+                <div class="planet mars-hero"></div>
+                <div class="rocket-hero" id="hero-rocket">
+                    <svg viewBox="0 0 100 100" class="hero-rocket-svg">
+                        <!-- Sleek hero rocket -->
+                        <path class="hero-rocket-flame" d="M40 70 L60 70 L50 95 Z" fill="#ff5c2b" />
+                        <path class="hero-rocket-body" d="M50 10 Q65 40 65 70 L35 70 Q35 40 50 10 Z" fill="#e2e6eb" />
+                        <path class="hero-rocket-window" d="M50 40 A5 5 0 1 0 50 41 Z" fill="#0b0c10" stroke="#ff5c2b"
+                            stroke-width="2" />
+                        <path class="hero-rocket-fin" d="M35 55 L20 80 L35 70 Z" fill="#ff5c2b" />
+                        <path class="hero-rocket-fin" d="M65 55 L80 80 L65 70 Z" fill="#ff5c2b" />
+                    </svg>
+                </div>
+            </div>
+            <div class="hero-content">
+                <div class="tag-badge">
+                    <span class="dot"></span> MISSION MJ-2026 &middot; INITIATED
+                </div>
+
+                <h1 class="main-title">Journey to <span class="orange-text">Mars</span></h1>
+
+                <p class="hero-subtitle">
+                    Two hundred million kilometers of silence. One red horizon.<br>
+                    Earth is our cradle—but humanity was never meant to stay in the cradle forever. The countdown to our
+                    greatest horizon begins now.
+                </p>
+
+                <div class="hero-buttons">
+                    <button id="begin-journey-btn" class="btn primary-btn">&darr; BEGIN JOURNEY</button>
+                    <a href="#exploration" class="btn glass-btn">SKIP TO END</a>
+                </div>
+            </div>
+
+            <!-- Bottom Data Blocks exactly as in the reference image -->
+            <div class="hero-footer">
+                <div class="data-blocks">
+                    <div class="data-card">
+                        <h3>225M km</h3>
+                        <p>DISTANCE</p>
+                    </div>
+                    <div class="data-card">
+                        <h3>7 months</h3>
+                        <p>DURATION</p>
+                    </div>
+                </div>
+                <div class="scroll-indicator">
+                    <p>SCROLL TO LAUNCH</p>
+                    <div class="line-down"></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- New: Interactive Rocket Liftoff Sequence -->
+        <section id="launch-sequence" class="section dark-section launch-bg">
+            <div class="container launch-container center">
+                <!-- Launch Control -->
+                <div class="launch-control">
+                    <h2 class="section-title">Ignition Control</h2>
+                    <p class="large-text" style="max-width: 600px; margin: 0 auto; line-height: 1.6;">The engines wait,
+                        starving for combustion. All telemetry is nominal. You hold the firing sequence to the destiny
+                        of our species.</p>
+                    <button id="launch-btn" class="btn primary-btn large" style="margin-top: 20px;">INITIATE
+                        LAUNCH</button>
+                    <!-- Audio element -->
+                    <audio id="rocket-audio" src="https://actions.google.com/sounds/v1/alarms/spaceship_takeoff.ogg"
+                        preload="auto"></audio>
+                </div>
+
+                <div class="rocket-wrapper" id="rocket-wrapper">
+                    <!-- Smoke container -->
+                    <div class="smoke-container" id="smoke-container"></div>
+                    <div class="rocket-illustration" id="rocket">
+                        <svg viewBox="0 0 100 250" class="rocket-svg">
+                            <!-- Rocket Engine & Flame (Back layer) -->
+                            <path class="rocket-engine" d="M35 180 L65 180 L55 200 L45 200 Z" fill="#1c1f2b" />
+                            <path class="rocket-flame" id="main-flame" d="M45 200 L55 200 L50 245 Z" fill="#ff5c2b" />
+                            <!-- Main Body -->
+                            <path class="rocket-body" d="M30 60 Q50 -10 70 60 L70 180 Q50 190 30 180 Z"
+                                fill="#24283b" />
+                            <path class="rocket-nose" d="M30 60 Q50 -10 70 60 Z" fill="#1c1f2b" />
+                            <!-- Window -->
+                            <circle class="rocket-window" cx="50" cy="110" r="10" fill="#24283b" stroke="#ff5c2b"
+                                stroke-width="4" />
+                            <circle cx="50" cy="110" r="5" fill="#1c1f2b" /> <!-- inner window -->
+                            <!-- Decoration Band -->
+                            <rect class="rocket-band" x="30" y="145" width="40" height="4" fill="#ff5c2b" />
+                            <!-- Side Boosters -->
+                            <rect class="rocket-booster-left" x="20" y="150" width="10" height="40" rx="3"
+                                fill="#1c1f2b" />
+                            <rect class="rocket-booster-right" x="70" y="150" width="10" height="40" rx="3"
+                                fill="#1c1f2b" />
+                            <!-- Orange Fins -->
+                            <path class="rocket-fin" d="M20 170 L10 205 L25 180 Z" fill="#ff5c2b" />
+                            <path class="rocket-fin" d="M80 170 L90 205 L75 180 Z" fill="#ff5c2b" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic added information: WHY MARS -->
+        <section id="why-mars" class="section earth-section parallax-section"
+            style="background-image: url('https://images.unsplash.com/photo-1614728263952-84ea256f9679?auto=format&fit=crop&q=80&w=2000');">
+            <div class="container reveal">
+                <h2 class="section-title center">Why Mars?</h2>
+                <p class="large-text center" style="max-width: 800px; margin: 0 auto 50px;">Because the universe offers
+                    no guarantees for a single-planet civilization. Mars is our most viable sanctuary, and our greatest
+                    crucible. The silent race for human continuity has begun.</p>
+
+                <div class="cards-grid">
+                    <article class="info-card">
+                        <div class="card-icon">🌍</div>
+                        <h3>Future Colonization</h3>
+                        <p>Mars has a day cycle akin to Earth (24.6 hours) and seasons. Its poles contain subsurface ice
+                            caps to extract water, while its thin atmosphere can be parsed for carbon dioxide to
+                            synthesize breathable oxygen and propellant.</p>
+                    </article>
+                    <article class="info-card">
+                        <div class="card-icon">🦠</div>
+                        <h3>Search for Life</h3>
+                        <p>Ancient, dried-up river valleys and Jezero's crater lake beds indicate that liquid water once
+                            flowed freely. Exploring the Martian soil helps humanity answer the ultimate question: did
+                            life start anywhere else?</p>
+                    </article>
+                    <article class="info-card">
+                        <div class="card-icon">🔬</div>
+                        <h3>Scientific Research</h3>
+                        <p>Unlike Earth, Mars lacks active plate tectonics, meaning its static crust holds a pristine
+                            geological record of the early solar system. Data from NASA's rovers and ISRO's Mangalyaan
+                            orbiters provide unprecedented atmospheric insights.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic added information: MISSION TIMELINE -->
+        <section id="mission-timeline" class="section dark-section">
+            <div class="container reveal">
+                <h2 class="section-title center">Historic Mission Timeline</h2>
+                <p class="large-text center" style="margin-bottom: 50px;">Every impossible frontier was crossed by those
+                    who refused to turn back.</p>
+                <div class="timeline-ui">
+                    <div class="timeline-step reveal">
+                        <div class="timeline-icon">🚀</div>
+                        <div class="timeline-content">
+                            <h3 class="orange-text">Launch Phase</h3>
+                            <p>Escaping Earth's gravity requires immense computational thrust orchestration. Historic
+                                launches happen at complex facilities like Cape Canaveral (NASA) and Sriharikota (ISRO).
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-step reveal">
+                        <div class="timeline-icon">🌌</div>
+                        <div class="timeline-content">
+                            <h3 class="orange-text">Space Travel</h3>
+                            <p>The harsh 7-month interplanetary journey. Craft traverse millions of kilometers through
+                                the cold, silent void, enduring hazardous cosmic radiation without external lifelines.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-step reveal">
+                        <div class="timeline-icon">🛰️</div>
+                        <div class="timeline-content">
+                            <h3 class="orange-text">Mars Orbit</h3>
+                            <p>Aggressive celestial braking to achieve gravitational capture. India's <strong>Mars
+                                    Orbiter Mission (Mangalyaan)</strong> historically achieved this flawless orbit on
+                                its very first structural attempt in 2014.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-step reveal">
+                        <div class="timeline-icon">🛬</div>
+                        <div class="timeline-content">
+                            <h3 class="orange-text">Landing Operations</h3>
+                            <p>Surviving the blazing atmospheric entry using sky-cranes and supersonic parachutes.
+                                Groundbreaking robotic assets like NASA's <strong>Perseverance Rover</strong> currently
+                                pioneer the volatile surface below.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic added information: SPACE TRAVEL -->
+        <section id="travel" class="section dark-section" style="background-color: var(--bg-darker);">
+            <div class="container reveal">
+                <div class="grid-2-col">
+                    <div class="text-block">
+                        <h2 class="section-title">The Void Between Worlds</h2>
+                        <p class="large-text" style="margin-bottom: 30px; line-height: 1.6;">Leaving Earth's gravity is
+                            merely the prologue. We must navigate the hostile radiation of the silent void for over 200
+                            days. Human psychological endurance becomes the true, terrifying frontier.</p>
+                        <ul class="info-list">
+                            <li><strong>Velocity:</strong> Cruising at approximately 39,600 km/h relative to the sun.
+                            </li>
+                            <li><strong>Life Support:</strong> Fully closed-loop recycling system for air and water.
+                                Zero waste protocol initiated.</li>
+                            <li><strong>Solar Arrays:</strong> Deploying massive panels to capture distant sunlight as
+                                thermal output drops.</li>
+                            <li><strong>Communication:</strong> Message delay increases from a few minutes up to 22
+                                minutes as the distance grows.</li>
+                        </ul>
+                    </div>
+                    <div class="image-block">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200"
+                            alt="Spacecraft traveling through deep space" class="rounded-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic added information: LANDING -->
+        <section id="landing" class="section earth-section parallax-section">
+            <div class="container reveal">
+                <h2 class="section-title center">Seven Minutes of Terror</h2>
+                <p class="large-text center" style="margin-bottom: 50px;">A fiery deceleration through the roaring
+                    atmosphere, guided entirely by machines millions of miles from human help.</p>
+                <div class="cards-grid">
+                    <article class="info-card">
+                        <div class="card-icon">🔥</div>
+                        <h3>1. Atmospheric Entry</h3>
+                        <p>The heat shield absorbs temperatures exceeding 2,100°C as the capsule hits the thin Martian
+                            atmosphere at hypersonic speeds.</p>
+                    </article>
+                    <article class="info-card">
+                        <div class="card-icon">🪂</div>
+                        <h3>2. Parachute Deployment</h3>
+                        <p>A massive supersonic parachute deploys automatically at Mach 1.7 to rapidly decelerate the
+                            falling craft.</p>
+                    </article>
+                    <article class="info-card">
+                        <div class="card-icon">🚀</div>
+                        <h3>3. Powered Descent</h3>
+                        <p>Retrorockets fire in the final seconds to guide the payload gently to the surface crater,
+                            bringing velocity down to absolute zero.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic added information: EXPLORATION -->
+        <section id="exploration" class="section dark-section">
+            <div class="container reveal">
+                <div class="grid-2-col reverse">
+                    <div class="text-block">
+                        <h2 class="section-title">Surface Operations</h2>
+                        <p class="large-text" style="margin-bottom: 30px; line-height: 1.6;">Upon landing, the mission
+                            transcends from survival into active conquest. Autonomous drones and nuclear rovers break
+                            the alien soil, cementing the foundation for a permanent human foothold.</p>
+                        <div class="accordion">
+                            <article class="accordion-item">
+                                <button class="accordion-header" aria-expanded="false">Habitat Construction <span
+                                        class="icon" aria-hidden="true">+</span></button>
+                                <div class="accordion-content">
+                                    <p>Utilizing remote 3D-printing technology and local Martian regolith to build
+                                        radiation-shielded domes prior to human arrival.</p>
+                                </div>
+                            </article>
+                            <article class="accordion-item">
+                                <button class="accordion-header" aria-expanded="false">ISRU Resource Fetching <span
+                                        class="icon" aria-hidden="true">+</span></button>
+                                <div class="accordion-content">
+                                    <p>Harvesting subsurface ice caps for drinkable water and synthesizing atmospheric
+                                        carbon into methane fuel for the return journey.</p>
+                                </div>
+                            </article>
+                            <article class="accordion-item">
+                                <button class="accordion-header" aria-expanded="false">Atmospheric Sampling <span
+                                        class="icon" aria-hidden="true">+</span></button>
+                                <div class="accordion-content">
+                                    <p>Testing ancient river beds for microbial fossils. Even the smallest trace of life
+                                        fundamentally alters humanity's place in the universe.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="image-block">
+                        <img src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?auto=format&fit=crop&q=80&w=1200"
+                            alt="Mars Rover" class="rounded-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New: INTERACTIVE MARS MAP -->
+        <section id="interactive-map" class="section dark-section" style="background-color: var(--bg-darker);">
+            <div class="container reveal">
+                <h2 class="section-title center">Explore The Surface</h2>
+                <p class="large-text center" style="max-width: 800px; margin: 0 auto 60px;">A sleeping giant of rusted
+                    iron and ice. We are not just explorers charting the unknown—we are the architects of a second
+                    genesis.</p>
+
+                <div class="map-container">
+                    <div class="mars-globe">
+                        <!-- High-res mars texture shaped into a globe -->
+                        <div class="globe-sphere"></div>
+
+                        <!-- Hotspots -->
+                        <div class="hotspot" style="top: 35%; left: 30%;">
+                            <div class="hotspot-dot"></div>
+                            <div class="hotspot-pulse"></div>
+                            <div class="hotspot-card">
+                                <h3>Olympus Mons</h3>
+                                <p>The largest volcano in the entire solar system. Standing 21.9 km (13.6 miles) high,
+                                    it is nearly three times the height of Earth's Mount Everest.</p>
+                            </div>
+                        </div>
+
+                        <div class="hotspot" style="top: 55%; left: 65%;">
+                            <div class="hotspot-dot"></div>
+                            <div class="hotspot-pulse"></div>
+                            <div class="hotspot-card right-card">
+                                <h3>Valles Marineris</h3>
+                                <p>A vast canyon system rupturing the Martian equator. At 4,000 km long and 7 km deep,
+                                    it completely dwarfs the Grand Canyon.</p>
+                            </div>
+                        </div>
+
+                        <div class="hotspot" style="top: 25%; left: 70%;">
+                            <div class="hotspot-dot"></div>
+                            <div class="hotspot-pulse"></div>
+                            <div class="hotspot-card right-card">
+                                <h3>Jezero Crater</h3>
+                                <p>The landing site for the Perseverance Rover. An ancient, dried-up lakebed believed to
+                                    be the most promising location to search for fossilized microbial life.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic added information: TECHNOLOGY USED -->
+        <section id="technology" class="section dark-section">
+            <div class="container reveal">
+                <h2 class="section-title center">Technology Used</h2>
+                <p class="large-text center" style="max-width: 900px; margin: 0 auto 50px;">We do not brave the
+                    terrifying void with hope alone. We forge our survival with the absolute vanguard of human
+                    engineering.</p>
+
+                <div class="cards-grid">
+                    <article class="info-card">
+                        <div class="card-icon">🚀</div>
+                        <h3>Advanced Rockets</h3>
+                        <p>Getting huge payloads off Earth requires unprecedented thrust. Aerospace leaders like <span
+                                class="orange-text">SpaceX</span> utilize highly reusable, revolutionary rockets—such as
+                            the <span class="orange-text">Falcon Heavy</span>—to push habitats into deep space reliably.
+                        </p>
+                    </article>
+                    <article class="info-card">
+                        <div class="card-icon">👨‍🚀</div>
+                        <h3>Space Suits</h3>
+                        <p>Next-generation extravehicular mobility units monitor cardiovascular data in real-time while
+                            providing localized thermal regulation. This allows astronauts to survive and work in the
+                            lethal -60°C winds dynamically.</p>
+                    </article>
+                    <article class="info-card">
+                        <div class="card-icon">🚙</div>
+                        <h3>Autonomous Rovers</h3>
+                        <p>Nuclear-powered, AI-driven rovers scan the alien regolith. They operate decades ahead of
+                            human arrival, scouting ideal settlement locations and mechanically preparing the crust for
+                            deep foundation habitats.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- New: INTERACTIVE QUIZ SECTION -->
+        <section id="mars-quiz" class="section dark-section">
+            <div class="container reveal center">
+                <h2 class="section-title">Can You Survive on Mars?</h2>
+                <p class="large-text center" style="margin-bottom: 40px; color: var(--text-grey);">The Red Planet does
+                    not forgive hesitation. Prove your intellect before you strap into the spacecraft.</p>
+                <div class="quiz-container">
+                    <div id="quiz-content">
+                        <h3 id="question-text" class="orange-text" style="margin-bottom: 20px; font-size: 1.5rem;">
+                            Loading question...</h3>
+                        <div id="options-container" class="quiz-options">
+                            <!-- Buttons injected via JS -->
+                        </div>
+                        <button id="next-question-btn" class="btn outline-btn hidden" style="margin-top: 30px;">Next
+                            Question</button>
+                    </div>
+                    <div id="quiz-result" class="hidden">
+                        <h3 id="score-text" style="font-size: 2.5rem; color: var(--brand-orange); margin-bottom: 10px;">
+                        </h3>
+                        <p id="score-message" class="large-text" style="margin-bottom: 30px;"></p>
+                        <button id="restart-quiz-btn" class="btn nav-btn">Retake Simulation</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic added information: LIFE ON MARS -->
+        <section id="life-on-mars" class="section earth-section parallax-section"
+            style="background-image: url('https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?auto=format&fit=crop&q=80&w=2000'); background-position: top;">
+            <div class="container reveal">
+                <h2 class="section-title center">Life on the Surface</h2>
+                <p class="large-text center" style="max-width: 800px; margin: 0 auto 50px;">A lethal atmosphere and
+                    sub-zero wastelands. To live on Mars is to defy the impossible daily. We adapt, we endure, and we
+                    ignite life where the universe left only dust.</p>
+
+                <div class="toggle-container center">
+                    <span class="toggle-label" id="label-earth">EARTH</span>
+                    <label class="switch">
+                        <input type="checkbox" id="planet-toggle" checked>
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="toggle-label active orange-text" id="label-mars">MARS</span>
+                </div>
+
+                <div class="cards-grid comparison-grid mars-mode">
+                    <article class="info-card center">
+                        <div class="card-icon">⚖️</div>
+                        <h3>Gravity</h3>
+                        <h2 class="huge-data orange-text" id="data-gravity">3.72 m/s²</h2>
+                        <p id="desc-gravity">You would feel 62% lighter. A 100kg person weighs only 38kg.</p>
+                    </article>
+                    <article class="info-card center">
+                        <div class="card-icon">🌡️</div>
+                        <h3>Avg Temperature</h3>
+                        <h2 class="huge-data orange-text" id="data-temp">-60°C</h2>
+                        <p id="desc-temp">Bone-chilling cold. Temperatures can drop to -125°C at the poles.</p>
+                    </article>
+                    <article class="info-card center">
+                        <div class="card-icon">🏠</div>
+                        <h3>Living Conditions</h3>
+                        <h2 class="huge-data orange-text" id="data-living">Extreme</h2>
+                        <p id="desc-living">Zero breathable air. Lethal radiation outside shielded pressure domes.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic added information: CONCLUSION & CTA -->
+        <section id="conclusion" class="section dark-section"
+            style="border-top: 1px solid var(--glass-border); padding-top: 150px;">
+            <div class="container reveal">
+                <div class="center" style="max-width: 900px; margin: 0 auto;">
+                    <div class="tag-badge" style="margin-bottom: 20px;">
+                        <span class="dot"></span> BEYOND 2030
+                    </div>
+                    <h2 class="section-title" style="font-size: clamp(3rem, 5vw, 4rem);">The Next Leap for Mankind</h2>
+
+                    <p class="large-text">
+                        The journey to Mars is no longer a question of <em>if</em>, but <em>when</em>. With robotic
+                        pioneers already carving the path and aerospace engineering advancing at unprecedented speeds,
+                        the future of interplanetary life stands on our immediate horizon.
+                    </p>
+
+                    <div class="grid-2-col" style="margin: 70px 0; text-align: left;">
+                        <div class="info-card" style="background: rgba(4,4,6,0.5);">
+                            <div class="card-icon">🏗️</div>
+                            <h3>Human Colonization</h3>
+                            <p>Within the next decade, humanity aims to establish the first sustainable Martian
+                                colonies. Utilizing 3D-printed habitats and local resource gathering (ISRU) will allow
+                                us to become a multi-planetary species, fundamentally safeguarding our survival.</p>
+                        </div>
+                        <div class="info-card" style="background: rgba(4,4,6,0.5);">
+                            <div class="card-icon">🚀</div>
+                            <h3>Future of Missions</h3>
+                            <p>Mars is only our first major stepping stone. Mastering deep-space infrastructure and
+                                propellant production on the Red Planet will turn it into an interstellar transit hub,
+                                propelling humanity towards the Asteroid Belt and the moons of Jupiter.</p>
+                        </div>
+                    </div>
+
+                    <h3 class="orange-text" style="font-size: 2.5rem; margin-bottom: 25px;">History is Waiting.</h3>
+                    <p class="large-text" style="max-width: 800px; margin: 0 auto 50px;">
+                        The unknown is not conquered by those who look back, but by those willing to plunge into the
+                        void. The launch sequence is initiated. The engines are primed. Take your place among the
+                        pioneers.
+                    </p>
+
+                    <a href="#hero" class="btn primary-btn large"
+                        style="font-size: 1.1rem; padding: 22px 60px; box-shadow: 0 15px 30px rgba(255, 92, 43, 0.5);">ENLIST
+                        IN THE INITIATIVE</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer style="padding: 40px 0; background-color: var(--bg-dark); border-top: 1px solid var(--glass-border);">
+        <div class="container center">
+            <div class="logo" style="justify-content: center; margin-bottom: 15px;">
+                <span class="icon">🚀</span> <span class="white-text">MARS</span><span
+                    class="orange-text">JOURNEY</span>
+            </div>
+            <p class="footer-copy" style="color: var(--text-grey); font-size: 0.8rem; letter-spacing: 2px;">&copy; 2026
+                MARSJOURNEY EXPLORATION CORPS. ALL SYSTEMS GO.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
